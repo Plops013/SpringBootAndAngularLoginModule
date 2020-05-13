@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+    aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" routerLink="/home" href="#">Navbar</a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/home" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="auth.isAuthenticated()" routerLink="/person/list" href="#">List All Users</a>
+      </li>
+
+    </ul>
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <li *ngIf="!auth.isAuthenticated();else logout" class="nav-item">
+        <a class="nav-link" routerLink="/login"  href="#">Login</a>
+      </li>
+      <ng-template #logout>
+        <app-logout></app-logout>
+      </ng-template>
+    </ul>
+  </div>
+</div>
+</nav>
